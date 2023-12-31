@@ -397,9 +397,10 @@ nav li>a:focus {
     font-size: clamp(1.2rem, 3vw, 1.6rem);
 }
 
-.section-div>img {
+.section-div img {
     width: 100%;
     height: auto;
+    border-radius: .5vw;
 }
 
 
