@@ -213,3 +213,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateActiveNavItem(); // Call the function initially to set the initial state
 });
+
+
+const images = document.querySelectorAll('.scroll-transition');
+const faderOptions = {
+    rootMargin: "0px 0px 10% 0px"
+    // threshold: .1,
+};
+
+const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return
+        } else {
+            entry.target.classList.add("active");
+            appearOnScroll.unobserve(entry.target)
+        }
+    })
+}, faderOptions);
+
+images.forEach(fade => {
+    appearOnScroll.observe(fade)
+});

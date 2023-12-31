@@ -418,6 +418,21 @@ nav li>a:focus {
     width: 49%;
 }
 
+.scroll-transition {
+    opacity: 0;
+    transform: translateY(40%);
+    transition: transform 0.3s ease,
+        opacity .3s ease-in-out;
+}
+
+.scroll-transition.active {
+    opacity: 100;
+    transform: translateY(0);
+}
+
+
+
+
 
 
 
