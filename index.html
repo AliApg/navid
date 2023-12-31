@@ -35,10 +35,10 @@
         </div>
         <nav id="navbar">
             <ul>
-                <li data-nav="introduction"><a href="#">Introduction</a></li>
-                <li data-nav="equipment"><a href="#">Equipment</a></li>
-                <li data-nav="outlook"><a href="#">Outlook</a></li>
-                <li><a data-lang="contact-us-nav" onclick="down()">Contact us</a></li>
+                <li data-nav="introduction"><a data-lang="introduction-nav">Introduction</a></li>
+                <li data-nav="equipment"><a data-lang="equipment-nav">Equipment</a></li>
+                <li data-nav="outlook"><a data-lang="outlook-nav">Outlook</a></li>
+                <li data-nav="foot"><a data-lang="contact-us-nav" onclick="down()">Contact us</a></li>
             </ul>
         </nav>
     </header>
@@ -91,8 +91,10 @@
                     The commitment to acquiring top-tier equipment reflects the startup's dedication to achieving
                     unparalleled precision and
                     excellence in the creation of its revolutionary shock absorbers.</p>
-                <img src="pics/IMG_20231224_124537.jpg" alt="Equipment Image 1">
-                <img src="pics/IMG_20231224_124613.jpg" alt="Equipment Image 2">
+                <div class="image-container">
+                    <img src="pics/IMG_20231224_124537.jpg" alt="Equipment Image 1">
+                    <img src="pics/IMG_20231224_124613.jpg" alt="Equipment Image 2">
+                </div>
             </div>
         </section>
 
@@ -118,45 +120,47 @@
             </div>
         </section>
     </main>
-    <footer id="foot" class="english">
-        <div class="about-us">
-            <div class="contact-us english">
-                <h4 data-lang="contact-us">Contact us</h4>
-                <ul>
-                    <li data-lang="address" class="contact">Address: ...</li>
-                    <li data-lang="mail" class="contact">E-Mail: ...</li>
-                    <li data-lang="tel" class="contact">Tel: (+00) 0000 000 0000</li>
-                </ul>
+    <footer>
+        <section id="foot">
+            <div class="about-us">
+                <div class="contact-us english">
+                    <h4 data-lang="contact-us">Contact us</h4>
+                    <ul>
+                        <li data-lang="address" class="contact">Address: ...</li>
+                        <li data-lang="mail" class="contact">E-Mail: ...</li>
+                        <li data-lang="tel" class="contact">Tel: (+00) 0000 000 0000</li>
+                    </ul>
+                </div>
+                <div class="socials">
+                    <h4 data-lang="socials">Socials</h4>
+                    <ul class="icons">
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-linkedin icons-hover"></i></a></li>
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-telegram-plane icons-hover"></i></a></li>
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-whatsapp icons-hover"></i></a></li>
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-github icons-hover"></i></a></li>
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-researchgate icons-hover"></i></a></li>
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-twitter icons-hover"></i></a></li>
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-facebook-square icons-hover"></i></a></li>
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-instagram icons-hover"></i></a></li>
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-skype icons-hover"></i></a></li>
+                        <li class="socials-icons"><a class="icon-focus" target="__blank"><i
+                                    class="fab fa-youtube icons-hover"></i></a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="socials">
-                <h4 data-lang="socials">Socials</h4>
-                <ul class="icons">
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-linkedin icons-hover"></i></a></li>
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-telegram-plane icons-hover"></i></a></li>
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-whatsapp icons-hover"></i></a></li>
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-github icons-hover"></i></a></li>
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-researchgate icons-hover"></i></a></li>
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-twitter icons-hover"></i></a></li>
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-facebook-square icons-hover"></i></a></li>
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-instagram icons-hover"></i></a></li>
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-skype icons-hover"></i></a></li>
-                    <li class="socials-icons"><a class="icon-focus" target="__blank"><i
-                                class="fab fa-youtube icons-hover"></i></a></li>
-                </ul>
+            <div id="copyright">
+                <span data-lang="copyright">Copyright &copy; All Rights Reserved for this Company.</span>
             </div>
-        </div>
-        <div>
-            <span data-lang="copyright">Copyright &copy; All Rights Reserved for this Company.</span>
-        </div>
+        </section>
     </footer>
     <script src="js/script.js"></script>
 
