@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/carousel.css">
 
     <link rel="icon" type="img/png" href="img/logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 
     <title>Navid Dynamics</title>
 </head>
@@ -92,14 +93,14 @@
                     The commitment to acquiring top-tier equipment reflects the startup's dedication to achieving
                     unparalleled precision and
                     excellence in the creation of its revolutionary shock absorbers.</p>
-                <div class="carousel">
+                <div class="carousel scroll-transition">
                     <!-- <div class="image-container carousel"> -->
                     <!-- <img class="scroll-transition" src="pics/IMG_20231224_124537.jpg" alt="Equipment Image 1">
                     <img class="scroll-transition" src="pics/IMG_20231224_124613.jpg" alt="Equipment Image 2"> -->
-                    <input onclick="move()" type="radio" id="carousel-1" name="carousel[]" checked>
-                    <input onclick="move()" type="radio" id="carousel-2" name="carousel[]">
-                    <input onclick="move()" type="radio" id="carousel-3" name="carousel[]">
-                    <input onclick="move()" type="radio" id="carousel-4" name="carousel[]">
+                    <input type="radio" id="carousel-1" name="carousel[]" checked>
+                    <input type="radio" id="carousel-2" name="carousel[]">
+                    <input type="radio" id="carousel-3" name="carousel[]">
+                    <input type="radio" id="carousel-4" name="carousel[]">
                     <!-- <input onclick="move()" type="radio" id="carousel-5" name="carousel[]"> -->
                     <ul class="carousel__items flx">
                         <li class="carousel__item">
@@ -118,7 +119,7 @@
                             <p class="carousel__paragraph RTL"></p>
                         </li> -->
                     </ul>
-                    <div onclick="move()" class="carousel__prev">
+                    <div class="carousel__prev">
                         <label class="carousel__btn__holder" for="carousel-1"><i
                                 class="flx carousel__btn fas fa-angle-up"></i></label>
                         <label class="carousel__btn__holder" for="carousel-2"><i
@@ -130,7 +131,7 @@
                         <!-- <label class="carousel__btn__holder" for="carousel-5"><i
                                 class="flx carousel__btn fas fa-angle-up"></i></label> -->
                     </div>
-                    <div onclick="move()" class="carousel__next">
+                    <div class="carousel__next">
                         <label class="carousel__btn__holder" for="carousel-1"><i
                                 class="flx carousel__btn fas fa-angle-up"></i></label>
                         <label class="carousel__btn__holder" for="carousel-2"><i
@@ -189,7 +190,7 @@
                         <li class="contact">E-Mail:
                             <!-- <li data-lang="mail" class="contact">E-Mail: -->
                             <a id="email" class="contact-link" target="__blank"
-                                href="mailto:info@naviddynamics.com?subject=Subject%20Here&body=Message%20Text%20Here">
+                                href="mailto:info@naviddynamics.com?subject=[Subject%20Here]&body=[Message%20Text%20Here]">
                                 info@naviddynamics.com
                             </a>
                         </li>

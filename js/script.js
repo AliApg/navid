@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Variables for elements
     var header = document.getElementById('main-header');
     var navbar = document.getElementById('navbar');
     var burgerIcon = document.getElementById('burger-icon');
@@ -6,14 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var up = document.getElementById('up');
     var menuItems = document.querySelectorAll('#navbar ul li');
 
-    burgerIcon.addEventListener('click', function () {
-        toggleMenu();
-    });
-
-    overlay.addEventListener('click', function () {
-        toggleMenu();
-    });
-
+    // Event listener for menu items
     menuItems.forEach(function (item) {
         item.addEventListener('click', function () {
             overlay.classList.remove('active');
@@ -22,13 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Function to toggle menu visibility
     function toggleMenu() {
         overlay.classList.toggle('active');
         burgerIcon.classList.toggle('open');
         navbar.classList.toggle('expanded');
     }
 
-    window.addEventListener('scroll', function () {
+    // Sets the navbar height based on position
+    function setNavbarHeight() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
             up.classList.add('scrolled');
@@ -36,19 +32,37 @@ document.addEventListener('DOMContentLoaded', function () {
             header.classList.remove('scrolled');
             up.classList.remove('scrolled');
         }
+    }
+
+    // Event listener for scroll, updating header and scroll-to-top button
+    window.addEventListener('scroll', function () {
+        setNavbarHeight()
     });
+
+    // Event listeners for burger icon and overlay
+    burgerIcon.addEventListener('click', function () {
+        toggleMenu();
+    });
+
+    overlay.addEventListener('click', function () {
+        toggleMenu();
+    });
+
+    // Initially set the navbar height
+    setNavbarHeight()
 });
 
+// Function to scroll to the bottom of the page
 function down() {
     window.scrollTo(0, document.documentElement.scrollHeight);
 }
 
+// Event listener for scroll-to-top button
 up.addEventListener("click", () => {
     window.scrollTo(0, 0);
 });
 
-
-
+// Object to store language content
 var languageContent = {
     "introduction-nav": {
         "en": "Introduction",
@@ -124,6 +138,7 @@ var languageContent = {
     }
 };
 
+// Function to update content based on language
 function updateContent() {
     var currentLanguage = (document.getElementById('language').classList.contains('english')) ? 'en' : 'de';
 
@@ -140,8 +155,7 @@ function updateContent() {
     });
 }
 
-
-
+// Function to update email link href based on language
 function updateEmailLinkHref() {
     var emailLink = document.getElementById('email');
 
@@ -154,6 +168,7 @@ function updateEmailLinkHref() {
     }
 }
 
+// Function to toggle between English and German language
 function toggleLanguage() {
     var languageElement = document.getElementById('language');
     languageElement.classList.toggle('english');
@@ -163,6 +178,7 @@ function toggleLanguage() {
     updateContent();
 }
 
+// Function to set default language based on domain
 function setDefaultLanguage() {
     var currentDomain = window.location.hostname;
 
@@ -171,12 +187,11 @@ function setDefaultLanguage() {
     }
 }
 
+// Initial setup for language
 setDefaultLanguage();
 
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
+    // Event listeners for smooth scroll to section
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('#navbar ul li');
 
@@ -187,17 +202,18 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetId = item.getAttribute('data-nav');
             const targetSection = document.getElementById(targetId);
 
-            const offset = document.getElementById('main-header').offsetHeight;
+            // const offset = document.getElementById('main-header').offsetHeight;
 
             window.scrollTo({
-                top: targetSection.offsetTop - offset
+                // top: targetSection.offsetTop - offset
+                top: targetSection.offsetTop - 30
             });
         });
     });
 });
 
-
 document.addEventListener('DOMContentLoaded', function () {
+    // Event listener for updating active navigation item
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('#navbar ul li a');
 
@@ -205,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const scrollPosition = window.scrollY;
 
         sections.forEach((section, index) => {
-            const top = section.offsetTop - 250;
+            const top = section.offsetTop - .86 * (window.innerHeight);
             const bottom = top + section.offsetHeight;
 
             if (scrollPosition >= top && scrollPosition < bottom) {
@@ -226,13 +242,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Event listeners for scroll and resize
     window.addEventListener('scroll', updateActiveNavItem);
     window.addEventListener('resize', updateActiveNavItem);
 
     updateActiveNavItem(); // Call the function initially to set the initial state
 });
 
-
+// Intersection Observer for image fade-in effect
 const images = document.querySelectorAll('.scroll-transition');
 const faderOptions = {
     rootMargin: "0px 0px 10% 0px"
