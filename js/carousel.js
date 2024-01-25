@@ -16,4 +16,11 @@ function timer() {
     }, 6000);
 }
 
+carousel.forEach(function (button) {
+    button.addEventListener("click", function () {
+        clearInterval(time);
+        timer();
+    });
+});
+
 timer();
