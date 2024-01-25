@@ -49,16 +49,6 @@ up.addEventListener("click", () => {
 
 
 
-// Function to update content based on the current language
-function toggleLanguage() {
-    var languageElement = document.getElementById('language');
-    languageElement.classList.toggle('english');
-    languageElement.classList.toggle('german');
-
-    // Update content based on the current language
-    updateContent();
-}
-
 var languageContent = {
     "introduction-nav": {
         "en": "Introduction",
@@ -107,21 +97,21 @@ var languageContent = {
         "en": "Contact us",
         "de": "Kontaktiere uns"
     },
-    "address":
-    {
-        "en": "Address: ...",
-        "de": "Adresse: ..."
-    },
-    "mail":
-    {
-        "en": "E-Mail: ...",
-        "de": "E-Mail: ..."
-    },
-    "tel":
-    {
-        "en": "Tel: (+00) 0000 000 0000",
-        "de": "Telefon: (+00) 0000 000 0000"
-    },
+    // "address":
+    // {
+    //     "en": "Address: Thielestraße 2B, 09599 Freiberg, Germany",
+    //     "de": "Address: Thielestraße 2B, 09599 Freiberg, Germany"
+    // },
+    // "mail":
+    // {
+    //     "en": 'E-Mail: info@naviddynamics.com',
+    //     "de": 'E-Mail: info@naviddynamics.de',
+    // },
+    // "tel":
+    // {
+    //     "en": "Telephone:  (+49) 1785 862 948",
+    //     "de": "Telefon:  (+49) 1785 862 948"
+    // },
     "socials":
     {
         "en": "Socials",
@@ -137,14 +127,11 @@ var languageContent = {
 function updateContent() {
     var currentLanguage = (document.getElementById('language').classList.contains('english')) ? 'en' : 'de';
 
-    // Get all elements with data-lang attribute
     var elementsToUpdate = document.querySelectorAll('[data-lang]');
 
-    // Loop through each element and update content based on the current language
     elementsToUpdate.forEach(function (element) {
         var languageKey = element.getAttribute('data-lang');
 
-        // Check if the language key and current language exist in the languageContent object
         if (languageContent[languageKey] && languageContent[languageKey][currentLanguage]) {
             element.textContent = languageContent[languageKey][currentLanguage];
         } else {
@@ -152,6 +139,39 @@ function updateContent() {
         }
     });
 }
+
+
+
+function updateEmailLinkHref() {
+    var emailLink = document.getElementById('email');
+
+    if (emailLink.innerText.endsWith('.com')) {
+        emailLink.href = emailLink.href.replace('.com', '.de');
+        emailLink.innerText = emailLink.innerText.replace('.com', '.de');
+    } else {
+        emailLink.href = emailLink.href.replace('.de', '.com');
+        emailLink.innerText = emailLink.innerText.replace('.de', '.com');
+    }
+}
+
+function toggleLanguage() {
+    var languageElement = document.getElementById('language');
+    languageElement.classList.toggle('english');
+    languageElement.classList.toggle('german');
+
+    updateEmailLinkHref()
+    updateContent();
+}
+
+function setDefaultLanguage() {
+    var currentDomain = window.location.hostname;
+
+    if (currentDomain.endsWith(".de")) {
+        toggleLanguage();
+    }
+}
+
+setDefaultLanguage();
 
 
 
@@ -167,10 +187,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetId = item.getAttribute('data-nav');
             const targetSection = document.getElementById(targetId);
 
-            // Calculate the offset to account for the fixed header
             const offset = document.getElementById('main-header').offsetHeight;
 
-            // Scroll to the target section smoothly with an offset
             window.scrollTo({
                 top: targetSection.offsetTop - offset
             });
