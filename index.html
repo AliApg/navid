@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="AliApg">
-
     <meta name="keywords" content="">
 
-    <link rel="preload" href="font/Jura-Regular.ttf" as="font" crossorigin="anonymous">
-    <link rel="preload" href="font/PatrickHand-Regular.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Jura&family=Oswald&family=Raleway&family=Roboto&family=Roboto+Condensed&family=Titillium+Web&display=swap"
+        as="style">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
 
     <link rel="icon" type="img/png" href="img/logo.png">
 
@@ -38,7 +39,7 @@
                 <li data-nav="introduction"><a data-lang="introduction-nav">Introduction</a></li>
                 <li data-nav="equipment"><a data-lang="equipment-nav">Equipment</a></li>
                 <li data-nav="outlook"><a data-lang="outlook-nav">Outlook</a></li>
-                <li data-nav="foot"><a data-lang="contact-us-nav" onclick="down()">Contact us</a></li>
+                <li data-nav="contacu-us"><a data-lang="contact-us-nav" onclick="down()">Contact us</a></li>
             </ul>
         </nav>
     </header>
@@ -69,7 +70,7 @@
                     market-ready solutions. This startup stands as a testament to the potential for transformative
                     advancements emerging
                     from the crucible of academic exploration.</p>
-                <img class="scroll-transition" src="pics/IMG_20231224_130230.jpg" alt="Equipment Image 1">
+                <img class="scroll-transition" src="pics/placeholder.png" alt="Equipment Image 1">
             </div>
         </section>
 
@@ -91,9 +92,63 @@
                     The commitment to acquiring top-tier equipment reflects the startup's dedication to achieving
                     unparalleled precision and
                     excellence in the creation of its revolutionary shock absorbers.</p>
-                <div class="image-container">
-                    <img class="scroll-transition" src="pics/IMG_20231224_124537.jpg" alt="Equipment Image 1">
-                    <img class="scroll-transition" src="pics/IMG_20231224_124613.jpg" alt="Equipment Image 2">
+                <div class="carousel">
+                    <!-- <div class="image-container carousel"> -->
+                    <!-- <img class="scroll-transition" src="pics/IMG_20231224_124537.jpg" alt="Equipment Image 1">
+                    <img class="scroll-transition" src="pics/IMG_20231224_124613.jpg" alt="Equipment Image 2"> -->
+                    <input onclick="move()" type="radio" id="carousel-1" name="carousel[]" checked>
+                    <input onclick="move()" type="radio" id="carousel-2" name="carousel[]">
+                    <input onclick="move()" type="radio" id="carousel-3" name="carousel[]">
+                    <input onclick="move()" type="radio" id="carousel-4" name="carousel[]">
+                    <!-- <input onclick="move()" type="radio" id="carousel-5" name="carousel[]"> -->
+                    <ul class="carousel__items flx">
+                        <li class="carousel__item">
+                            <!-- <p class="carousel__paragraph RTL"></p> -->
+                        </li>
+                        <li class="carousel__item">
+                            <!-- <p class="carousel__paragraph RTL"></p> -->
+                        </li>
+                        <li class="carousel__item">
+                            <!-- <p class="carousel__paragraph RTL"></p> -->
+                        </li>
+                        <li class="carousel__item">
+                            <!-- <p class="carousel__paragraph RTL"></p> -->
+                        </li>
+                        <!-- <li class="carousel__item">
+                            <p class="carousel__paragraph RTL"></p>
+                        </li> -->
+                    </ul>
+                    <div onclick="move()" class="carousel__prev">
+                        <label class="carousel__btn__holder" for="carousel-1"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label>
+                        <label class="carousel__btn__holder" for="carousel-2"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label>
+                        <label class="carousel__btn__holder" for="carousel-3"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label>
+                        <label class="carousel__btn__holder" for="carousel-4"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label>
+                        <!-- <label class="carousel__btn__holder" for="carousel-5"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label> -->
+                    </div>
+                    <div onclick="move()" class="carousel__next">
+                        <label class="carousel__btn__holder" for="carousel-1"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label>
+                        <label class="carousel__btn__holder" for="carousel-2"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label>
+                        <label class="carousel__btn__holder" for="carousel-3"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label>
+                        <label class="carousel__btn__holder" for="carousel-4"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label>
+                        <!-- <label class="carousel__btn__holder" for="carousel-5"><i
+                                class="flx carousel__btn fas fa-angle-up"></i></label> -->
+                    </div>
+                    <div class="carousel__nav">
+                        <label for="carousel-1"></label>
+                        <label for="carousel-2"></label>
+                        <label for="carousel-3"></label>
+                        <label for="carousel-4"></label>
+                        <!-- <label for="carousel-5"></label> -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -116,20 +171,34 @@
                     our mission is to deliver unparalleled comfort and relief on the road, setting new benchmarks in the
                     automotive
                     industry.</p>
-                <img class="scroll-transition" src="pics/Screenshot_2023-12-18-00-20-37-366_com.android.chrome-edit.jpg"
-                    alt="Outlook Image">
+                <img class="scroll-transition" src="pics/placeholder.png" alt="Outlook Image">
             </div>
         </section>
     </main>
     <footer>
-        <section id="foot">
+        <section id="contacu-us">
             <div class="about-us">
                 <div class="contact-us english">
                     <h4 data-lang="contact-us">Contact us</h4>
                     <ul>
-                        <li data-lang="address" class="contact">Address: ...</li>
-                        <li data-lang="mail" class="contact">E-Mail: ...</li>
-                        <li data-lang="tel" class="contact">Tel: (+00) 0000 000 0000</li>
+                        <li class="contact">Address: <a id="map-pin" class="contact-link">
+                                <!-- <li data-lang="address" class="contact">Address: <a id="map-pin" class="contact-link"> -->
+                                Thielestraße 2B, 09599 Freiberg, Germany
+                            </a>
+                        </li>
+                        <li class="contact">E-Mail:
+                            <!-- <li data-lang="mail" class="contact">E-Mail: -->
+                            <a id="email" class="contact-link" target="__blank"
+                                href="mailto:info@naviddynamics.com?subject=Subject%20Here&body=Message%20Text%20Here">
+                                info@naviddynamics.com
+                            </a>
+                        </li>
+                        <li class="contact">Tel:
+                            <!-- <li data-lang="tel" class="contact">Tel: -->
+                            <a class="contact-link" href="tel:+49 1785 862 948">
+                                (+49) 1785 862 948
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="socials">
@@ -164,6 +233,8 @@
         </section>
     </footer>
     <script src="js/script.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/carousel.js"></script>
 
 </body>
 
