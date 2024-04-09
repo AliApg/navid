@@ -64,6 +64,11 @@ up.addEventListener("click", () => {
 
 // Object to store language content
 var languageContent = {
+    "language":
+    {
+        "en": "Change language",
+        "de": "Sprache ändern"
+    },
     "introduction-nav": {
         "en": "Introduction",
         "de": "Einführung"
@@ -103,19 +108,19 @@ var languageContent = {
     },
     "outlook":
     {
-        "en": "Embracing a visionary outlook, the startup envisions a transformative trajectory in the realm of shock absorbers, commencing with the development of the Innova twintube passive shock absorbers as its inaugural milestone. This strategic entry point lays the foundation for a progressive evolution, with future endeavors set to unveil semiactive and active shock absorbers. Comprising a dedicated team of engineers driven by unwavering commitment and precision, Navid Dynamics is committed to redefining the driving experience. The fusion of cutting-edge technology and a passion for innovation positions the startup as a catalyst in revolutionizing damping engineering. As we embark on this journey, our mission is to deliver unparalleled comfort and relief on the road, setting new benchmarks in the automotive industry.",
-        "de": "Mit einem visionären Ausblick beabsichtigt das Startup, eine transformative Entwicklung im Bereich der Stoßdämpfer zu vollziehen. Dies beginnt mit der Entwicklung der Innova Twintube passiven Stoßdämpfer als seinen einleitenden Meilenstein. Dieser strategische Einstieg legt den Grundstein für eine fortschreitende Evolution, wobei zukünftige Bestrebungen darauf abzielen, semiaktive und aktive Stoßdämpfer zu enthüllen. Bestehend aus einem engagierten Team von Ingenieuren, das von unerschütterlichem Engagement und Präzision angetrieben wird, hat sich Navid Dynamics dazu verpflichtet, das Fahrerlebnis neu zu definieren. Die Verschmelzung von modernster Technologie und Leidenschaft für Innovation positioniert das Startup als Katalysator für die Revolutionierung der Dämpftechnik. Auf dieser Reise ist unsere Mission, unvergleichlichen Komfort und Entlastung auf der Straße zu bieten und dabei neue Maßstäbe in der Automobilindustrie zu setzen."
+        "en": "Embracing a visionary outlook, the startup envisions a transformative trajectory in the realm of shock absorbers, commencing with the development of the Innova twin-tube passive shock absorbers as its inaugural milestone. This strategic entry point lays the foundation for a progressive evolution, with future endeavors set to unveil semiactive and active shock absorbers. Comprising a dedicated team of engineers driven by unwavering commitment and precision, Navid Dynamics is committed to redefining the driving experience. The fusion of cutting-edge technology and a passion for innovation positions the startup as a catalyst in revolutionizing damping engineering. As we embark on this journey, our mission is to deliver unparalleled comfort and relief on the road, setting new benchmarks in the automotive industry. If our project has piqued your interest or you're keen on collaborating, we welcome you to reach out without hesitation.",
+        "de": "Mit einem visionären Ausblick beabsichtigt das Startup, eine transformative Entwicklung im Bereich der Stoßdämpfer zu vollziehen. Dies beginnt mit der Entwicklung der Innova Twintube passiven Stoßdämpfer als seinen einleitenden Meilenstein. Dieser strategische Einstieg legt den Grundstein für eine fortschreitende Evolution, wobei zukünftige Bestrebungen darauf abzielen, semiaktive und aktive Stoßdämpfer zu enthüllen. Bestehend aus einem engagierten Team von Ingenieuren, das von unerschütterlichem Engagement und Präzision angetrieben wird, hat sich Navid Dynamics dazu verpflichtet, das Fahrerlebnis neu zu definieren. Die Verschmelzung von modernster Technologie und Leidenschaft für Innovation positioniert das Startup als Katalysator für die Revolutionierung der Dämpftechnik. Auf dieser Reise ist unsere Mission, unvergleichlichen Komfort und Entlastung auf der Straße zu bieten und dabei neue Maßstäbe in der Automobilindustrie zu setzen. Wenn unser Projekt Ihr Interesse geweckt hat oder Sie an einer Zusammenarbeit interessiert sind, heißen wir Sie herzlich dazu ein, sich ohne Zögern an uns zu wenden."
     },
     "contact-us":
     {
         "en": "Contact us",
         "de": "Kontaktiere uns"
     },
-    // "address":
-    // {
-    //     "en": "Address: Thielestraße 2B, 09599 Freiberg, Germany",
-    //     "de": "Address: Thielestraße 2B, 09599 Freiberg, Germany"
-    // },
+    "address":
+    {
+        "en": "Thielestrasse 2B, 09599 Freiberg, Germany",
+        "de": "Thielestraße 2B, 09599 Freiberg, Deutschland"
+    },
     // "mail":
     // {
     //     "en": 'E-Mail: info@naviddynamics.com',
@@ -128,7 +133,7 @@ var languageContent = {
     // },
     "socials":
     {
-        "en": "Socials",
+        "en": "Social media",
         "de": "Soziale Medien"
     },
     "copyright":
@@ -144,11 +149,16 @@ function updateContent() {
 
     var elementsToUpdate = document.querySelectorAll('[data-lang]');
 
+    document.documentElement.lang = currentLanguage
     elementsToUpdate.forEach(function (element) {
         var languageKey = element.getAttribute('data-lang');
 
         if (languageContent[languageKey] && languageContent[languageKey][currentLanguage]) {
-            element.textContent = languageContent[languageKey][currentLanguage];
+            if (languageKey == "language") {
+                element.title = languageContent[languageKey][currentLanguage];
+            } else {
+                element.textContent = languageContent[languageKey][currentLanguage];
+            }
         } else {
             console.error("Language content not found for key:", languageKey, "and language:", currentLanguage);
         }
@@ -270,3 +280,47 @@ const appearOnScroll = new IntersectionObserver(function (entries, appearOnScrol
 images.forEach(fade => {
     appearOnScroll.observe(fade)
 });
+
+var mapPin = document.getElementById('map-pin');
+var map = document.getElementById('map');
+
+// Function to handle hover effect
+function handleHoverEffect() {
+    map.classList.add('hovered');
+}
+
+// Function to handle reverting hover effect
+function handleRevertHoverEffect() {
+    map.classList.remove('hovered');
+}
+
+// Add a mouseenter event listener to mapPin
+mapPin.addEventListener('mouseenter', function () {
+    // Check screen width before triggering the hover effect
+    if (window.innerWidth >= 600) {
+        handleHoverEffect();
+    }
+});
+
+// Add a mouseleave event listener to revert the hover effect on map
+mapPin.addEventListener('mouseleave', function () {
+    // Check screen width before reverting the hover effect
+    if (window.innerWidth >= 600) {
+        handleRevertHoverEffect();
+    }
+});
+
+// Check screen width and add 'hovered' class if less than 600 pixels
+function checkScreenWidth() {
+    if (window.innerWidth < 600) {
+        handleHoverEffect();
+    } else {
+        handleRevertHoverEffect();
+    }
+}
+
+// Initial check on page load
+checkScreenWidth();
+
+// Add a resize event listener to continuously check screen width
+window.addEventListener('resize', checkScreenWidth);

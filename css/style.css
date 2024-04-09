@@ -4,12 +4,13 @@
 /* ===================== Scrollbar setting start ===================== */
 /* =================================================================== */
 
+/*
 @supports (scrollbar-color: red blue) {
     * {
         scrollbar-width: thin;
         scrollbar-color: #7791cc #27496D;
     }
-}
+} */
 
 ::-webkit-scrollbar {
     width: .5em;
@@ -44,7 +45,7 @@
 ::selection {
     color: #211856;
     background-color: #7e6da5;
-    /* text-shadow: .07em .07em .15em #6d4a4acc; */
+    text-shadow: .07em .07em .15em #6d4a4acc;
 }
 
 /* =================================================================== */
@@ -59,6 +60,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: #121018;
 }
 
 *,
@@ -126,6 +128,10 @@ header {
     background: #fff;
 }
 
+#main-header.scrolled #navbar>ul>li.active>a::after {
+    background: #8b79b8;
+}
+
 #logo-container {
     display: flex;
     align-items: center;
@@ -153,6 +159,7 @@ nav ul {
 nav ul li {
     display: inline-block;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 nav ul li a {
@@ -315,9 +322,9 @@ nav li>a:focus {
     border-radius: 50%;
     text-align: center;
     align-items: center;
-    background: hsla(0, 0%, 80%, 0.5);
-    border: 2px solid #ccc;
     justify-content: center;
+    border: 2px solid #ccc;
+    background: hsla(0, 0%, 80%, 0.5);
     font-size: clamp(1.35rem, 4vw, 1.7rem);
     transition: transform 400ms ease-in-out,
         background 150ms ease-in-out;
@@ -404,9 +411,9 @@ nav li>a:focus {
 #equipment,
 #outlook {
     width: 100%;
+    display: flex;
     min-height: 100vh;
     padding: 10vh 5vw;
-    display: flex;
     align-items: center;
     justify-content: center;
     background-color: #121018;
@@ -503,7 +510,8 @@ footer {
 }
 
 .about-us {
-    gap: 5em;
+    row-gap: 2em;
+    column-gap: 5em;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -531,6 +539,11 @@ footer h4 {
     list-style-type: none;
 }
 
+
+.contact:nth-child(3)>i {
+    margin: 0 2.5px;
+}
+
 .contact-link {
     color: inherit;
     text-decoration: none;
@@ -543,61 +556,21 @@ footer h4 {
 }
 
 .icons {
-    gap: .8em;
+    gap: 1em;
     display: flex;
     flex-wrap: wrap;
-    padding-top: 1em;
+    padding: 1em 0;
     align-items: center;
     list-style-type: none;
     justify-content: center;
 }
 
-#copyright {
-    margin-top: 3em;
-    font-size: clamp(1rem, 3vw, 1.3rem);
-}
-
-.fa-linkedin {
-    color: #0a66c2;
-}
-
-.fa-telegram-plane {
-    color: #0698ce;
-}
-
-.fa-twitter {
-    color: #1e8cd0;
-}
-
-.fa-whatsapp {
-    color: #25d366;
-}
-
-.fa-facebook-square {
-    color: #1877f2;
-}
-
-.fa-instagram {
-    color: #af2b78;
-}
-
-.fa-skype {
-    color: #00aff0;
-}
-
-.fa-youtube {
-    color: #ff0000;
-}
-
-.fa-researchgate {
-    color: #00ccbb;
-}
-
-.fa-github {
-    color: #f0f6fc;
+.fa-linkedin-in {
+    margin-left: .3em;
 }
 
 .icons-hover {
+    transform: scale(1.1);
     transition: transform .25s ease-in-out;
 }
 
@@ -609,8 +582,36 @@ footer h4 {
 .icons-hover:hover,
 .icon-focus:focus>i {
     cursor: pointer;
-    transform: scale(1.4);
+    transform: scale(1.45);
     text-shadow: 0 0 .6em currentColor;
+}
+
+#map {
+    border: 0;
+    opacity: .4;
+    width: 250px;
+    height: 200px;
+    margin-top: 15px;
+    transition:
+        opacity 400ms ease,
+        width 400ms ease;
+    transition-delay: 250ms;
+    border-radius: max(10px, .7vw);
+}
+
+#map:hover,
+#map:focus,
+#map.hovered {
+    border: 0;
+    opacity: 1;
+    width: 100%;
+    margin-top: 15px;
+}
+
+#copyright {
+    opacity: .5;
+    margin-top: 1.5em;
+    font-size: clamp(1rem, 3vw, 1.3rem);
 }
 
 /* ================================================================= */
@@ -685,6 +686,10 @@ footer h4 {
 
     .image-container>img {
         width: 100%;
+    }
+
+    #map {
+        display: none
     }
 }
 
