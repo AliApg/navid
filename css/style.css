@@ -71,6 +71,11 @@ html {
     box-sizing: border-box;
 }
 
+img {
+    color: #fff;
+    font-family: "Jura";
+}
+
 .flx {
     display: flex;
     flex-direction: column;
@@ -507,6 +512,16 @@ footer {
     font-weight: 500;
     letter-spacing: .1em;
     font-family: 'Roboto Condensed';
+}
+
+footer:after {
+    content: "(image) exploded view of an engineering component designed in SolidWorks.";
+    display: block;
+    visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
 }
 
 .about-us {

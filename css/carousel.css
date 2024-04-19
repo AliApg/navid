@@ -105,6 +105,16 @@
     background-image: url(../img/equipment-4.jpg);
 }
 
+.carousel__item:after {
+    content: "(Carousel containing images) Powerful tools, limitless creations.";
+    display: block;
+    visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
 /* .carousel__item:nth-of-type(5) {
     background-image: url(../img/carousel_5.jpg);
 } */

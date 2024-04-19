@@ -165,18 +165,18 @@ function updateContent() {
     });
 }
 
-// Function to update email link href based on language
-function updateEmailLinkHref() {
-    var emailLink = document.getElementById('email');
+// // Function to update email link href based on language
+// function updateEmailLinkHref() {
+//     var emailLink = document.getElementById('email');
 
-    if (emailLink.innerText.endsWith('.com')) {
-        emailLink.href = emailLink.href.replace('.com', '.de');
-        emailLink.innerText = emailLink.innerText.replace('.com', '.de');
-    } else {
-        emailLink.href = emailLink.href.replace('.de', '.com');
-        emailLink.innerText = emailLink.innerText.replace('.de', '.com');
-    }
-}
+//     if (emailLink.innerText.endsWith('.com')) {
+//         emailLink.href = emailLink.href.replace('.com', '.de');
+//         emailLink.innerText = emailLink.innerText.replace('.com', '.de');
+//     } else {
+//         emailLink.href = emailLink.href.replace('.de', '.com');
+//         emailLink.innerText = emailLink.innerText.replace('.de', '.com');
+//     }
+// }
 
 // Function to toggle between English and German language
 function toggleLanguage() {
@@ -184,7 +184,7 @@ function toggleLanguage() {
     languageElement.classList.toggle('english');
     languageElement.classList.toggle('german');
 
-    updateEmailLinkHref()
+    // updateEmailLinkHref()
     updateContent();
 }
 
